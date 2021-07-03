@@ -1,0 +1,344 @@
+:root
+{
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784D3C;
+    --gris: #E1E1E1;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+}
+
+html
+{
+    box-sizing: border-box; /* Para que el border/padding/etc no afecte el ancho de los elementos */
+    font-size: 62.5%; /* Es para que 1rem = 10px */
+}
+
+*, *:before, *:after
+{
+    box-sizing: inherit; /* Heredera (el box-sizing) del elemento padre (<html>) */
+}
+
+body
+{
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+
+/* Globales */
+.contenedor
+{
+    max-width: 120rem; /* El contenido se distribuye máximo, 120rem (1200px) */
+    width: 90%; /* Si es menos de 120rem, ocupa el 90% del espacio */
+    width: min(90%, 120rem); /* Hace lo mismo que las dos funciones de arriba */
+    margin: 0 auto; /* Centrar el contenido horizontalmente */
+}
+
+a
+{
+    text-decoration: none; /* Quitar interlineado */
+}
+
+h1, h2, h3, h4
+{
+    font-size: var(--fuenteHeading);
+    line-height: 1.2;
+}
+h1
+{
+    font-size: 4.8rem;
+}
+h2
+{
+    font-size: 4.0rem;
+}
+h3
+{
+    font-size: 3.2rem;
+}
+h4
+{
+    font-size: 2.8rem;
+}
+
+img
+{
+    max-width: 100%;
+}
+
+/* Utilidades */
+.no-margin
+{
+    margin: 0;
+}
+.no-padding
+{
+    padding: 0;
+}
+.centrar-texto
+{
+    text-align: center;
+}
+
+
+/* Header */
+.webp .header { background-image: url("../img/banner.webp"); } /* Si el navegador soporta webp */
+.no-webp .header { background-image: url("../img/banner.jpg"); } /* Si el navegador no soporta webp */
+.header
+{
+    
+    height: 60rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.header__texto
+{
+    color: var(--blanco);
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 1.8rem;
+}
+@media(min-width: 768px)
+{
+    .header__texto
+    {
+        margin-top: 15rem;
+    }
+}
+
+.barra
+{
+    padding-top: 2rem;
+}
+@media(min-width: 768px)
+{
+    .barra
+    {
+        display: flex;
+        justify-content: space-between; /* Alinear horizontalmente */
+        align-items: center; /* Alinear verticalmente */
+    }
+}
+
+.logo
+{
+    color: var(--blanco);
+}
+.logo__nombre
+{
+    font-weight: normal; /* 400 */
+}
+.logo__bold
+{
+    font-weight: bold; /* 700 */
+}
+
+.navegacion__enlace
+{
+    display: block; /* Los elementos no se mostrarán uno al lado del otro, sino uno debajo del otro */
+    text-align: center; /* Centrar horizontalmente */
+    font-size: 1.8rem;
+    color: var(--blanco);
+    
+    border-radius: 5px;
+    padding: 0rem 1rem;
+    margin: 0rem .1rem;
+    transition: background-color 0.2s ease-out;
+}
+.navegacion__enlace:hover
+{
+    transition: background-color 0.2s ease-out;
+    background-color: rgba(144, 144, 144, 0.5);
+}
+
+
+@media(min-width: 768px)
+{
+    .navegacion
+    {
+        display: flex;
+        gap: 0rem;
+    }
+
+    .contenido-principal
+    {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+    
+}
+
+.entrada
+{
+    border-bottom: 1px solid var(--gris); /* (anchodelborder, tipodeborder, color) */
+    margin-bottom: 2rem;
+}
+.entrada:last-of-type /* Quitar el borde al ultimo <article> */
+{
+    border: none;
+    margin-bottom: 0;
+}
+
+.boton
+{
+    display: block;
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    border: none;
+}
+.boton:hover { cursor: pointer };
+
+@media(min-width: 768px)
+{
+    .boton { display: inline-block; }
+}
+
+.boton--primario { background-color: var(--negro); }
+.boton--secundario { background-color: var(--primario); }
+
+.cursos 
+{ 
+    list-style: none; 
+
+    border: 1px solid var(--gris);
+    padding: 2rem;
+    border-radius: 10px;
+}
+.widget-curso
+{
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.widget-curso:last-of-type
+{
+    border: none;
+    border-bottom: 0;
+}
+.widget-curso__label
+{
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+.widget-curso__info
+{
+    font-weight: normal;
+}
+
+.footer
+{
+    background-color: var(--negro);
+    padding-bottom: 2rem; /* Añade separación dentro del footer (3rem arriba y abajo, 0 izquierda/derecha) */
+    margin-top: 4rem; /* Añade separación entre el contenido (lo que está encima) y el footer */
+}
+
+/* Nosotros */
+@media(min-width: 768px)
+{
+    .sobre-nosotros
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+
+    .sobre-nosotros__texto p
+    {
+        margin: 0;
+    }
+}       
+
+/* Curso */
+.curso
+{
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+.curso:last-of-type
+{
+    border-bottom: none;
+}
+
+@media(min-width: 768px)
+{
+    .curso
+    {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.curso__label
+{
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+.curso__info
+{
+    font-weight: normal;
+}
+.curso__label, .curso__info
+{
+    font-size: 2rem;
+}
+
+
+/* Contacto */
+.contacto-bg
+{
+    background-image: url("../img/contacto.jpg");
+    height: 40rem; /* Le damos una altura de 400px a la imagen - sino no se muestra la imagen */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario
+{
+    background-color: white;
+    width: 95%;
+    margin: -5rem auto 0 auto; /* -5rem arriba, auto derecha, 0 abajo, auto izquierda */
+    padding: 5rem;
+
+    
+    box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.3);
+}
+.campo
+{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo:last-of-type
+{
+    margin-left: 9rem;
+}
+.campo__label
+{
+    flex: 0 0 9rem; /* No le damos factor de crecimiento */
+    text-align: right;
+    padding-right: 2rem;
+}
+.campo__field
+{
+    flex: 1; /* Recibe el factor de crecimiento - extiende el input hasta el final de la caja */
+    border: 1px solid var(--gris);
+}
+.campo__field--textarea
+{
+    height: 20rem;
+}
+
